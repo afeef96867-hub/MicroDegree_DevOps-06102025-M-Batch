@@ -25,5 +25,13 @@ pipeline{
                 '''
             }
          }
+
+       stage('docker-stage'){
+            steps{
+                sh'''
+                    echo "this is just text"
+                '''  
+            }
+       }
     }
 }
