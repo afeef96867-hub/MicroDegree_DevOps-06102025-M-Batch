@@ -1,0 +1,11 @@
+pipeline{
+    agent any
+
+    stages{
+        stage('git-checkout'){
+            steps{
+                    git url: 'https://github.com/afeef96867-hub/MicroDegree_DevOps-06102025-M-Batch.git', branch: 'jenkins' 
+            }
+        }
+    }
+}
