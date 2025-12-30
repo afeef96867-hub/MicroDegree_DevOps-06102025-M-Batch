@@ -1,10 +1,10 @@
 pipeline{
     agent any
+
     parameters{
-        string(name:'evn',deafaultValue:'prod',description:'this is to test')
+        string(name: 'ENV',defaultValue: 'Prod',description: 'this is to test...')
     }
         
-
     stages{
         stage('build-stage'){
             steps{
@@ -12,7 +12,7 @@ pipeline{
                    echo "hello jenkins"
                    echo "this is a test pipeline"
                    echo "ENVis $ENV"
-            '''
+               '''
             }
         }
      }    
