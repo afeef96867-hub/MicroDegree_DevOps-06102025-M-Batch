@@ -7,12 +7,26 @@ pipeline{
         
     stages{
         stage('build-stage'){
-            steps{
-                sh'''
-                   echo "hello jenkins"
-                   echo "this is a test pipeline"
-                   echo "ENVis $ENV"
-               '''
+            stages{
+                stage('checking_code'){
+                    steps{
+                        sh' echo "hello world"'
+                    }
+                }
+                stage('testing _code'){
+                    steps{
+                        sh' echo "hello world"'
+                    }
+                }
+            }   
+        }
+        stage('deploying to one more ENV'){
+            stages{
+                stage('deploying-to dev'){
+                    steps{
+                        sh' echo "testing dev"'
+                   } 
+                }
             }
         }
      }    
