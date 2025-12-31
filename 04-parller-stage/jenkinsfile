@@ -1,6 +1,6 @@
 pipeline{
     agent none
-    stages{
+    stages {
         stage('run test'){
             parallel{
                 stage('test on windows'){
@@ -43,7 +43,7 @@ pipeline{
                 }     
             }
         } 
-     stage('deploying-stage'){
+        stage('deploying-stage'){
             agent any
             steps {
                 echo "test"
@@ -51,4 +51,5 @@ pipeline{
             }    
     }
 }
+
      
