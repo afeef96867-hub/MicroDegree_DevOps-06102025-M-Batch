@@ -19,13 +19,13 @@ pipeline{
                 }
             }
         }
-         stage('deploying-stage'){
+         stage('deployingstage'){
             agent any
             steps {
                 echo "test"
                 }
             }
-        stage('deploying -stage'){
+        stage('deploying test'){
             parallel{
                 stage('test on windows'){
                     agent any
@@ -43,7 +43,7 @@ pipeline{
                 }     
             }
         } 
-        stage('deploying-stage'){
+        stage('deployingtest'){
             agent any
             steps {
                 echo "test"
