@@ -15,9 +15,15 @@ pipeline{
                     steps {
                         echo "test"
                     }
-                    
+
                 }
             }
         }
-    }
-}
+         stage('deploying-stage'){
+            agent any
+            steps {
+                echo "test"
+                }
+            } 
+        }
+  }       
