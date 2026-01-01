@@ -3,9 +3,9 @@ pipeline{
         label 'prod'
     }
     stages{
-        stage('ip adderss'){
+        stage('host'){
             steps{
-                sh 'hostname -I'
+                sh 'hostname'
             }
         }
     stage('disk-utilisation'){
