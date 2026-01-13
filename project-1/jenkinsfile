@@ -32,7 +32,7 @@ pipeline {
 
         stage('Terraform Init & Plan') {
             steps {
-                dir('iac-repo/main-server') {
+                dir('iac-repo/project-1') {
                     sh '''
                         terraform init -input=false -upgrade
                         terraform plan -out=tfplan
@@ -45,7 +45,7 @@ pipeline {
         stage('Approval') {
             steps {
                 script {
-                    def plan = readFile 'iac-repo/main-server/tfplan.txt'
+                    def plan = readFile 'iac-repo/project-1/tfplan.txt'
                     input(
                         message: 'Do you want to proceed with Terraform?',
                         parameters: [
@@ -62,7 +62,7 @@ pipeline {
 
         stage('Apply or Destroy') {
             steps {
-                dir('iac-repo/main-server') {
+                dir('iac-repo/project-1') {
                     script {
                         if (params.terraformAction == 'apply') {
                             sh 'terraform apply -input=false tfplan'
@@ -75,3 +75,4 @@ pipeline {
         }
     }
 }
+
