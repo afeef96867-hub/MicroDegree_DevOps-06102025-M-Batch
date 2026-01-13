@@ -19,7 +19,7 @@ pipeline{
                     // If you want to use a specific directory name for checkout, use it consistently.
                     // Renamed 'terraform' dir to 'iac-repo' for clarity, adjust if needed.
                     dir("iac-repo"){ 
-                        git branch: 'IAC-Project',url:'https://github.com/afeef96867-hub/MicroDegree_DevOps-06102025-M-Batch.git'
+                        git branch: 'IAC-project',url:'https://github.com/afeef96867-hub/MicroDegree_DevOps-06102025-M-Batch.git'
                     }
                 }
             }
