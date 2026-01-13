@@ -1,11 +1,15 @@
 pipeline {
     agent any
 
+    options {
+        timestamps()
+    }
+
     parameters {
         choice(
             name: 'terraformAction',
             choices: ['apply', 'destroy'],
-            description: 'Choose your terraform action to perform'
+            description: 'Choose your terraform action'
         )
     }
 
@@ -18,6 +22,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
+                cleanWs()
                 dir('iac-repo') {
                     git branch: 'IAC-project',
                         url: 'https://github.com/afeef96867-hub/MicroDegree_DevOps-06102025-M-Batch.git'
@@ -28,9 +33,11 @@ pipeline {
         stage('Terraform Init & Plan') {
             steps {
                 dir('iac-repo/main-server') {
-                    sh 'terraform init'
-                    sh 'terraform plan -out=tfplan'
-                    sh 'terraform show -no-color tfplan > tfplan.txt'
+                    sh '''
+                        terraform init -input=false -upgrade
+                        terraform plan -out=tfplan
+                        terraform show -no-color tfplan > tfplan.txt
+                    '''
                 }
             }
         }
