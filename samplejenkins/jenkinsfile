@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 git branch: 'staging',
-                    url: 'https://github.com/itkannadigaru/your-repo.git'
+                    url: 'https://github.com/afeef96867-hub/MicroDegree_DevOps-06102025-M-Batch.git'
             }
         }
 
